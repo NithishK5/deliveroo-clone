@@ -11,6 +11,8 @@
   "dependencies": {
     "@react-navigation/native": "^6.1.2",
     "@react-navigation/native-stack": "^6.9.8",
+    "@sanity/client": "^4.0.1",
+    "@sanity/image-url": "^1.0.2",
     "expo": "~47.0.12",
     "expo-status-bar": "~1.4.2",
     "nativewind": "^2.0.11",
@@ -22,6 +24,7 @@
     "react-native-screens": "~3.18.0",
     "react-native-svg": "13.4.0",
     "react-native-web": "~0.18.7",
+    "sanity": "^3.2.4",
     "tailwindcss-react-native": "^1.7.10"
   },
   "devDependencies": {
