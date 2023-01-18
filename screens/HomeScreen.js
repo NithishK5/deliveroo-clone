@@ -21,7 +21,6 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView className="bg-white pt-5">
-      <Text>
         {/*Header*/}
         <View className="flex-row pb-3 mx-4 space-x-2 px-4">
           <Image
@@ -63,7 +62,7 @@ const HomeScreen = () => {
             <Categories/>
             {/* Featured Rows */}
         </ScrollView>
-      </Text>
+      
     </SafeAreaView>
   );
 };
