@@ -59,30 +59,28 @@ const DeliveryScreen = () => {
         mapType="mutedStandard"
       >
         <Marker
-            coordinate={{
-                latitude: restaurant.lat,
-                longitude: restaurant.long,
-            }}
-            title={restaurant.title}
-            description={restaurant.short_description}
-            identifier='origin'
-            pinColor="#00CCBB"
+          coordinate={{
+            latitude: restaurant.lat,
+            longitude: restaurant.long,
+          }}
+          title={restaurant.title}
+          description={restaurant.short_description}
+          identifier="origin"
+          pinColor="#00CCBB"
         />
       </MapView>
-      <SafeAreaView className='bg-white flex-row items-center space-x-5 h-28'>
+      <SafeAreaView className="bg-white flex-row items-center space-x-5 h-28">
         <Image
-            source={{
-                uri: "https://links.papareact.com/wru",
-            }}
-            className='h-12 w-12 bg-gray-300 p-4 rounded-full ml-5'
+          source={{
+            uri: "https://links.papareact.com/wru",
+          }}
+          className="h-12 w-12 bg-gray-300 p-4 rounded-full ml-5"
         />
-        <View className='flex-1'>
-            <Text className='text-lg'>
-                Mr.Driver
-            </Text>
-            <Text className='text-gray-400'>Your Rider</Text>
+        <View className="flex-1">
+          <Text className="text-lg">Mr.Driver</Text>
+          <Text className="text-gray-400">Your Rider</Text>
         </View>
-        <Text className='text-[#00CCBB] text-lg mr-5 font-bold'>Call</Text>
+        <Text className="text-[#00CCBB] text-lg mr-5 font-bold">Call</Text>
       </SafeAreaView>
     </View>
   );

@@ -7,12 +7,16 @@ const Categories = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    client.fetch(`
+    client
+      .fetch(
+        `
         *[_type == "category"]
-    `).then(data =>{
-        setCategories(data)
-    })
-  },[])
+    `
+      )
+      .then((data) => {
+        setCategories(data);
+      });
+  }, []);
   return (
     <ScrollView
       contentContainerStyle={{

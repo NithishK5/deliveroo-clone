@@ -20,7 +20,7 @@ import client from "../sanity";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
-  const [featuredCategories, setFeaturedCategories] = useState([])
+  const [featuredCategories, setFeaturedCategories] = useState([]);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -29,17 +29,20 @@ const HomeScreen = () => {
   }, []);
 
   useEffect(() => {
-    client.fetch(
+    client
+      .fetch(
         `*[_type == "featured"]{
             ...,
             restaurants[]->{
                 ...,
                 dishes[]->
             }
-        }`).then(data =>{
-            setFeaturedCategories(data)
-        })
-  },[])
+        }`
+      )
+      .then((data) => {
+        setFeaturedCategories(data);
+      });
+  }, []);
 
   return (
     <SafeAreaView className="bg-white pt-5">
@@ -86,20 +89,18 @@ const HomeScreen = () => {
         <Categories />
 
         {/* Featured Rows */}
-        {featuredCategories?.map(category => (
-             <FeaturedRow
-             key={category._id}
-             id={category._id}
-             title={category.name}
-             description={category.short_description}
-           />
+        {featuredCategories?.map((category) => (
+          <FeaturedRow
+            key={category._id}
+            id={category._id}
+            title={category.name}
+            description={category.short_description}
+          />
         ))}
 
         {/* Tasty Discounts */}
-     
 
         {/* Offers near you */}
-        
       </ScrollView>
     </SafeAreaView>
   );
