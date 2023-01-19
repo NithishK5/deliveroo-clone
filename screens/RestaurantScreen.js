@@ -10,9 +10,14 @@ import {ArrowLeftIcon,
 } from 'react-native-heroicons/solid'
 import {QuestionMarkCircleIcon} from 'react-native-heroicons/outline'
 import DishRow from '../components/DishRow';
+import BasketIcon from '../components/BasketIcon';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setRestaurant } from '../features/restaurantSlice';
 
 const RestaurantScreen = () => {
     const navigation = useNavigation();
+    const dispatch = useDispatch();
 
     const {
         params:{
@@ -29,12 +34,31 @@ const RestaurantScreen = () => {
     },
 }= useRoute();
 
+useEffect(() => {
+    dispatch(setRestaurant({
+        id,
+        imgUrl,
+        title,
+        rating,
+        genre,
+        address,
+        short_description,
+        dishes,
+        long,
+        lat,  
+    }))
+}, [dispatch])
+
 useLayoutEffect(() => {
     navigation.setOptions({
         headerShown : false,
     });
 },[])
   return (
+    <>
+
+    <BasketIcon/>
+
     <ScrollView>
       <View className='relative'>
         <Image
@@ -75,7 +99,8 @@ useLayoutEffect(() => {
                 </Text>
                 <ChevronRightIcon color='#00CCBB'/>
             </TouchableOpacity>
-            <View>
+    
+            <View className='pb-36'>
                 <Text className='pt-6 px-4 mb-3 font-bold text-xl'>
                     Menu
                 </Text>
@@ -93,6 +118,7 @@ useLayoutEffect(() => {
             </View>
       </View>
     </ScrollView>
+    </>
   )
 }
 
